@@ -32,9 +32,15 @@
 }
 
 .navbar-username {
-	color: rgb(182, 255, 255) !important;
+	color: rgb(14, 194, 194) !important;
+	text-shadow: -1px -1px 1px #000000;
 }
 
 a {
 	color: #fff;
+}
+
+a :hover {
+	text-decoration: underline;
+	color: rgb(14, 194, 194) !important;
 }
