@@ -36,7 +36,7 @@ function App() {
 						value={{ username, setUsername, imageUrl, setImageUrl, isLoggedIn, setIsLoggedIn }}
 					>
 						<Alerts></Alerts>
-						<BrowserRouter>
+						<BrowserRouter basename="/react-mini-project">
 							<NavbarComponent></NavbarComponent>
 							<Switch>
 								<AuthenticatedRoute path="/" component={JobList} exact></AuthenticatedRoute>
