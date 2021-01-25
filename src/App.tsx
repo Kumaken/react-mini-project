@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import JobList from 'pages/JobList';
 import JobDescription from 'pages/JobDescription';
+import Login from 'pages/Login';
 
 function App() {
 	return (
@@ -13,6 +13,9 @@ function App() {
 					<Switch>
 						<Route path="/" exact>
 							<JobList></JobList>
+						</Route>
+						<Route path="/login">
+							<Login />
 						</Route>
 						<Route path="/job-list">
 							<JobList></JobList>

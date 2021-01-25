@@ -1,21 +1,16 @@
-import React, { useCallback, useContext, useEffect } from 'react';
-import Box from 'react-bulma-components/lib/components/box';
-import List from 'react-bulma-components/lib/components/list';
+import { useContext } from 'react';
 import Columns from 'react-bulma-components/lib/components/columns';
-import { Link } from 'react-router-dom';
 import './JobSearch.scss';
 import { useState } from 'react';
 import { JobSearchContext } from 'contexts/JobSearch';
 
 const JobSearch = (props: any) => {
-	// const [searchFilter, setSearchFilter] = useState<any>({
-	// 	jobdesc: '',
-	// 	location: '',
-	// 	fulltime: false
-	// });
-	const { jobdesc, location, fulltime, searchNow, setJobdesc, setLocation, setFulltime, setSearchNow } = useContext(
-		JobSearchContext
-	);
+	const [searchFilter, setSearchFilter] = useState<any>({
+		jobdesc: '',
+		location: '',
+		fulltime: false
+	});
+	const { fulltime, setJobdesc, setLocation, setFulltime, setSearchNow } = useContext(JobSearchContext);
 
 	const SearchBar = () => {
 		/* // <Field>
@@ -32,10 +27,11 @@ const JobSearch = (props: any) => {
 								className="input"
 								type="text"
 								placeholder="Filter by job description"
-								value={jobdesc}
+								value={searchFilter.jobdesc}
 								onInput={(e) => {
 									let event = e.target as HTMLInputElement;
-									setJobdesc(event.value);
+									setSearchFilter({ ...searchFilter, jobdesc: event.value });
+									// setJobdesc(event.value);
 								}}
 							/>
 						</div>
@@ -43,18 +39,37 @@ const JobSearch = (props: any) => {
 				</Columns.Column>
 				<Columns.Column>
 					<div className="control">
-						<input className="input" type="text" placeholder="Filter by location" />
+						<input
+							className="input"
+							type="text"
+							value={searchFilter.location}
+							placeholder="Filter by location"
+							onInput={(e) => {
+								let event = e.target as HTMLInputElement;
+								setSearchFilter({ ...searchFilter, location: event.value });
+								// setJobdesc(event.value);
+							}}
+						/>
 					</div>
 				</Columns.Column>
 				<Columns.Column>
 					<label className="checkbox">
-						<input type="checkbox" />
+						<input
+							type="checkbox"
+							value={searchFilter.fulltime}
+							onChange={() => {
+								setSearchFilter({ ...searchFilter, fulltime: !searchFilter.fulltime });
+							}}
+						/>
 						Full-time only
 					</label>
 					<div className="control">
 						<p
 							className="button is-info"
 							onClick={() => {
+								setJobdesc(searchFilter.jobdesc.toLocaleLowerCase());
+								setLocation(searchFilter.location.toLocaleLowerCase());
+								setFulltime(fulltime);
 								setSearchNow(true);
 							}}
 						>

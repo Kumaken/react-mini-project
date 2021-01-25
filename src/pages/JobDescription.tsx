@@ -1,5 +1,5 @@
 import { fetchJobDesc } from 'api/jobs';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Columns from 'react-bulma-components/lib/components/columns';
 import Image from 'react-bulma-components/lib/components/image';
