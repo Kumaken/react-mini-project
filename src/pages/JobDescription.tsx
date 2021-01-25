@@ -12,16 +12,12 @@ const JobDescription = (props: any) => {
 	// retrieve params into a variable
 	const params = useParams();
 
-	// print params to console
-	console.log(params);
-
 	const [jobDesc, setJobDesc] = useState<any>();
 
 	useEffect(() => {
 		const { cancel, request } = fetchJobDesc(params.id);
 		request
 			.then((data) => {
-				console.log(data);
 				setJobDesc(data);
 			})
 			.catch((err) => {

@@ -5,11 +5,13 @@ import { useState } from 'react';
 import Button from 'react-bulma-components/lib/components/button';
 import { LoginContext } from 'contexts/Login';
 import { AlertContext } from 'contexts/Alert';
+import Cookies from 'universal-cookie';
 
 const Login = () => {
 	const history = useHistory();
 	const { setUsername, setIsLoggedIn } = useContext(LoginContext);
 	const { setLoginFailAlert } = useContext(AlertContext);
+	const [rememberMe, setRememberMe] = useState(false);
 
 	// hardcode user credentials:
 	const user_cred = {
@@ -27,7 +29,13 @@ const Login = () => {
 		if (filledCreds.username === user_cred.username && filledCreds.password === user_cred.password) {
 			console.log('redirecting...');
 			setIsLoggedIn(true);
-			setUsername(user_cred.username);
+			setUsername(filledCreds.username);
+			// handle remember me:
+			if (rememberMe) {
+				console.log('REMEMBERING THE USER');
+				const cookies = new Cookies();
+				cookies.set('loggedInUser', filledCreds.username, { path: '/' });
+			}
 			history.replace('/job-list');
 		} else {
 			setLoginFailAlert(true);
@@ -81,8 +89,13 @@ const Login = () => {
 								</div>
 								<div className="field">
 									<label className="checkbox">
-										<input type="checkbox" />
-										<p className="login-text">Remember me</p>
+										<input
+											type="checkbox"
+											onChange={() => {
+												setRememberMe(!rememberMe);
+											}}
+										/>
+										<p className="login-text">&nbsp; Remember me</p>
 									</label>
 								</div>
 								<div className="field">

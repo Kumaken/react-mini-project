@@ -1,12 +1,18 @@
 import { LoginContext } from 'contexts/Login';
 import { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 const CheckIfLoggedIn = (): boolean => {
-	const { isLoggedIn } = useContext(LoginContext);
+	const { isLoggedIn, setIsLoggedIn, setUsername } = useContext(LoginContext);
+	const cookies = new Cookies();
+	const username = cookies.get('loggedInUser');
+	if (username && username !== '') {
+		console.log('cookies exist!');
+		return true;
+	}
 
-	// return isLoggedIn;
-	return true;
+	console.log('Logged in?', isLoggedIn);
+	return isLoggedIn;
 };
 
 export default CheckIfLoggedIn;

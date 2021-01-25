@@ -17,7 +17,6 @@ const JobList = () => {
 		const { cancel, request } = fetchJobList();
 		request
 			.then((data) => {
-				console.log(data);
 				setJobList(data);
 			})
 			.catch((err) => {

@@ -68,7 +68,7 @@ const JobSearch = (props: any) => {
 							onClick={() => {
 								setJobdesc(searchFilter.jobdesc.toLocaleLowerCase());
 								setLocation(searchFilter.location.toLocaleLowerCase());
-								setFulltime(fulltime);
+								setFulltime(searchFilter.fulltime);
 								setSearchNow(true);
 							}}
 						>

@@ -7,3 +7,34 @@
 	font-size: calc(2rem * var(--text-size-multiplier));
 	color: aliceblue;
 }
+
+.navbar-item {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: calc(0.75rem * var(--text-size-multiplier));
+	line-height: 50px;
+	text-shadow: -1px -1px 1px #16608e;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+	color: #fff;
+	margin: 0 1rem;
+}
+
+.navbar-item :hover {
+	text-decoration: underline;
+	color: #fff;
+}
+
+.navbar-item-drop {
+	color: rgb(0, 0, 0) !important;
+	text-shadow: none !important;
+}
+
+.navbar-username {
+	color: rgb(182, 255, 255) !important;
+}
+
+a {
+	color: #fff;
+}

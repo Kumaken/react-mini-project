@@ -20,26 +20,20 @@ const JobListComponent = (props: any) => {
 
 	useEffect(() => {
 		const filterQuery = () => {
-			console.log('filter query called');
-			console.log(jobdesc, location, fulltime);
-
 			let jobdesc_filtered;
 			if (jobdesc !== '')
 				jobdesc_filtered = props.jobList.filter((job) => job.description.toLocaleLowerCase().includes(jobdesc));
 			else jobdesc_filtered = props.jobList;
-
-			console.log('jobdesc filtered', jobdesc_filtered);
 
 			let loc_filtered;
 			if (location !== '')
 				loc_filtered = jobdesc_filtered.filter((job) => job.location.toLocaleLowerCase().includes(location));
 			else loc_filtered = jobdesc_filtered;
 
-			console.log('loc_filtered filtered', loc_filtered);
-
 			let ft_filtered;
+			console.log('fulltime?', fulltime);
 			if (fulltime)
-				ft_filtered = loc_filtered.filter((job) => job.type.toLocaleLowerCase().includes('Full Time'));
+				ft_filtered = loc_filtered.filter((job) => job.type.toLocaleLowerCase().includes('full time'));
 			else ft_filtered = loc_filtered;
 
 			console.log('filter result', ft_filtered);
@@ -53,7 +47,7 @@ const JobListComponent = (props: any) => {
 	}, [fulltime, jobdesc, location, props.jobList, searchNow, setSearchNow]);
 
 	const iterateJobs = useCallback(() => {
-		console.log(queryResult);
+		// console.log(queryResult);
 		if (!queryResult) return;
 		const jobElements: JSX.Element[] = [];
 		queryResult.forEach((job) => {

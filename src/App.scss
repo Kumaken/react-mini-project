@@ -53,6 +53,15 @@
 		--margin-multiplier: 0.9;
 		--text-size-multiplier: 0.9;
 	}
+
+	.navbar-item {
+		color: rgb(0, 0, 0);
+	}
+
+	a {
+		color: rgb(0, 0, 0) !important;
+		text-shadow: none !important;
+	}
 }
 
 // mobile view:
@@ -63,6 +72,15 @@
 		--margin-multiplier: 0.75;
 		--text-size-multiplier: 0.75;
 	}
+
+	.navbar-item {
+		color: rgb(0, 0, 0);
+	}
+
+	a {
+		color: rgb(0, 0, 0) !important;
+		text-shadow: none !important;
+	}
 }
 
 // ver small mobile view:
@@ -72,6 +90,15 @@
 		--size-multiplier-height: 0.625;
 		--margin-multiplier: 0.7;
 		--text-size-multiplier: 0.7;
+	}
+
+	.navbar-item {
+		color: rgb(0, 0, 0);
+	}
+
+	a {
+		color: rgb(0, 0, 0) !important;
+		text-shadow: none !important;
 	}
 }
 /* import bulma CSS */
