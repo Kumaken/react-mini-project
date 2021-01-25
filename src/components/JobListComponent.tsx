@@ -6,6 +6,9 @@ import Columns from 'react-bulma-components/lib/components/columns';
 import { Link } from 'react-router-dom';
 import { useCallback } from 'react';
 
+import './JobListComponent.scss';
+import DateUtil from 'utils/DateUtil';
+
 const JobListComponent = (props: any) => {
 	const [queryResult, setQueryResult] = useState<any>();
 	const { jobdesc, location, fulltime, searchNow, setSearchNow } = useContext(JobSearchContext);
@@ -56,23 +59,25 @@ const JobListComponent = (props: any) => {
 		queryResult.forEach((job) => {
 			jobElements.push(
 				<Link key={job.id} to={`/job-desc/${job.id}`}>
-					<List.Item>
-						<Columns>
-							<Columns.Column>
-								<p className="job-entry-left">{job.title}</p>
+					<List.Item className="job-entry">
+						<Columns className="job-upper-row">
+							<Columns.Column className="job-column-left">
+								<p className="job-title job-entry-left">{job.title}</p>
 							</Columns.Column>
-							<Columns.Column>
-								<p className="job-entry-right">{job.location}</p>
+							<Columns.Column className="job-column-right">
+								<p className="job-location job-entry-right">{job.location}</p>
 							</Columns.Column>
 						</Columns>
-						<Columns>
-							<Columns.Column>
-								<p className="job-entry-left">
-									{job.company} - {job.type}
+						<Columns className="job-lower-row">
+							<Columns.Column className="job-column-left">
+								<p className="job-subtitle job-entry-left">
+									{job.company} - <b>{job.type}</b>
 								</p>
 							</Columns.Column>
-							<Columns.Column>
-								<p className="job-entry-right">{job.created_at}</p>
+							<Columns.Column className="job-column-right">
+								<p className=" job-subtitle job-entry-right">
+									{DateUtil.getDatesDiffInDays(new Date(), new Date(job.created_at))} days ago
+								</p>
 							</Columns.Column>
 						</Columns>
 					</List.Item>
@@ -85,8 +90,7 @@ const JobListComponent = (props: any) => {
 
 	return (
 		<Box>
-			{console.log(props)}
-			<h1 className="title">Job List</h1>
+			<h1 className="job-list-title">Job List</h1>
 			<List hoverable>{iterateJobs()}</List>
 		</Box>
 	);

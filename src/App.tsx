@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './App.scss';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import JobList from 'pages/JobList';
 import JobDescription from 'pages/JobDescription';

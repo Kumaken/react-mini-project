@@ -4,6 +4,9 @@ import { useParams } from 'react-router-dom';
 import Columns from 'react-bulma-components/lib/components/columns';
 import Image from 'react-bulma-components/lib/components/image';
 import DOMPurify from 'dompurify';
+import Box from 'react-bulma-components/lib/components/box';
+
+import './JobDescription.scss';
 
 const JobDescription = (props: any) => {
 	// retrieve params into a variable
@@ -34,10 +37,10 @@ const JobDescription = (props: any) => {
 		if (!jobDesc) return;
 		return (
 			<div>
-				<h3>
+				<h3 className="jobdesc-subtitle">
 					{jobDesc.type} / {jobDesc.location}
 				</h3>
-				<h1>{jobDesc.title}</h1>
+				<h1 className="jobdesc-title">{jobDesc.title}</h1>
 				<hr></hr>
 			</div>
 		);
@@ -46,8 +49,8 @@ const JobDescription = (props: any) => {
 	const JobContent = () => {
 		if (!jobDesc) return;
 		return (
-			<Columns>
-				<Columns.Column>
+			<Columns className="jobdesc-content">
+				<Columns.Column size={8}>
 					<div
 						className="job-desc-content"
 						// eslint-disable-next-line react/no-danger
@@ -56,8 +59,28 @@ const JobDescription = (props: any) => {
 						}}
 					/>
 				</Columns.Column>
-				<Columns.Column>
-					<Image rounded className="company-logo" src={jobDesc.company_logo}></Image>
+				<Columns.Column size={4}>
+					<Columns className="jobdesc-right-boxes">
+						<Box className="jobdesc-logobox">
+							<div className="jobdesc-company-name">{jobDesc.company}</div>
+							<Box className="jobdesc-company-logo-container">
+								<Image className="jobdesc-company-logo" src={jobDesc.company_logo}></Image>
+							</Box>
+							<div className="jobdesc-company-url">{jobDesc.company_url}</div>
+						</Box>
+					</Columns>
+					<Columns className="jobdesc-right-boxes">
+						<Box className="jobdesc-logobox jobdesc-yellow-boxes">
+							<div className="jobdesc-company-name">How to apply</div>
+							<div
+								className="job-desc-content"
+								// eslint-disable-next-line react/no-danger
+								dangerouslySetInnerHTML={{
+									__html: DOMPurify.sanitize(jobDesc.how_to_apply, {})
+								}}
+							/>
+						</Box>
+					</Columns>
 				</Columns.Column>
 			</Columns>
 		);
@@ -65,8 +88,10 @@ const JobDescription = (props: any) => {
 
 	return (
 		<div>
-			{JobHeader()}
-			{JobContent()}
+			<Box>
+				{JobHeader()}
+				{JobContent()}
+			</Box>
 		</div>
 	);
 };

@@ -1,7 +1,21 @@
-.job-entry-left {
-	text-align: left;
+.search-button {
+	position: relative;
+	top: 0.6rem;
+	width: calc(7rem * var(--size-multiplier));
+	place-content: center;
 }
 
-.job-entry-right {
-	text-align: right;
+.searchbar-text {
+	font-size: calc(0.75rem * var(--text-size-multiplier)) !important;
+	place-content: center;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	padding: 0;
+	border-color: lightgray !important;
+	vertical-align: middle;
+}
+
+.checkbox {
+	position: relative;
+	top: 0.3rem;
 }

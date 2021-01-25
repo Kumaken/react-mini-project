@@ -5,12 +5,8 @@ import { useHistory } from 'react-router-dom';
 const CheckIfLoggedIn = (): boolean => {
 	const { isLoggedIn } = useContext(LoginContext);
 
-	return isLoggedIn;
-	// const history = useHistory();
-
-	// if (!isLoggedIn) {
-	// 	history.replace('/login');
-	// }
+	// return isLoggedIn;
+	return true;
 };
 
 export default CheckIfLoggedIn;

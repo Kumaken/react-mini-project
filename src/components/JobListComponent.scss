@@ -1,0 +1,71 @@
+.job-list-title {
+	margin: 15px 0 10px 0;
+	padding-bottom: 15px;
+	font-size: calc(1.5rem * var(--text-size-multiplier));
+	color: #294455;
+	border-bottom: 1px solid #ddd;
+	font-weight: bold;
+	text-align: left;
+}
+
+.job-title {
+	text-align: left;
+	font-size: calc(14px * var(--text-size-multiplier));
+	font-weight: bold;
+	text-decoration: none;
+	color: #1d80be;
+}
+
+.job-location {
+	font-size: calc(12px * var(--text-size-multiplier));
+	white-space: nowrap;
+	border-spacing: 0;
+	border-collapse: collapse;
+	padding: 0;
+	margin: 0;
+	display: block;
+	text-align: right;
+	color: #666;
+}
+
+.job-subtitle {
+	color: #777;
+	margin: 0;
+	// margin-bottom: 1rem;
+	font-size: calc(12px * var(--text-size-multiplier));
+	// border-bottom: 1px dotted #aaa;
+}
+
+.job-entry {
+	padding: 1rem;
+	// margin-bottom: 0.5rem;
+	border-bottom: 1px dotted #aaa;
+}
+
+.job-entry:hover {
+	background-color: rgb(233, 232, 232);
+}
+
+.job-column-left {
+	padding: 0 !important;
+}
+
+.job-column-right {
+	padding: 0 !important;
+}
+
+.job-entry-left {
+	text-align: left;
+}
+
+.job-entry-right {
+	text-align: right;
+}
+
+.job-upper-row {
+	margin-top: 0rem !important;
+}
+
+.job-lower-row {
+	margin-bottom: 0rem !important;
+}

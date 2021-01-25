@@ -1,0 +1,9 @@
+.title {
+	position: relative;
+	display: inline-block;
+	top: 0.7rem; // this works with absolute or relative
+	margin-right: 1rem;
+	margin-left: 0.5rem;
+	font-size: calc(2rem * var(--text-size-multiplier));
+	color: aliceblue;
+}
