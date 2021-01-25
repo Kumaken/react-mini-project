@@ -1,4 +1,6 @@
-# Github Jobs Copycat
+# Github Jobs Clone
+Demo: https://kumaken.github.io/react-mini-project/
+(NOTE: you need to enable CORS to access its features. You can use a browser-extension to enable CORS)
 
 Dummy credentials for mocking:
 - username: abcdef@gmail.com
