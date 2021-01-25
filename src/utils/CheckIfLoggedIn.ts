@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import Cookies from 'universal-cookie';
 
 const CheckIfLoggedIn = (): boolean => {
-	const { isLoggedIn, setIsLoggedIn, setUsername } = useContext(LoginContext);
+	const { isLoggedIn } = useContext(LoginContext);
 	const cookies = new Cookies();
 	const username = cookies.get('loggedInUser');
 	if (username && username !== '') {

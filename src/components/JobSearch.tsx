@@ -11,7 +11,7 @@ const JobSearch = (props: any) => {
 		location: '',
 		fulltime: false
 	});
-	const { fulltime, setJobdesc, setLocation, setFulltime, setSearchNow } = useContext(JobSearchContext);
+	const { setJobdesc, setLocation, setFulltime, setSearchNow } = useContext(JobSearchContext);
 
 	const SearchBar = () => {
 		return (

@@ -27,7 +27,7 @@ const JobDescription = (props: any) => {
 		return () => {
 			cancel();
 		};
-	}, []);
+	}, [params.id]);
 
 	const JobHeader = () => {
 		if (!jobDesc) return;
