@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Login.scss';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import Button from 'react-bulma-components/lib/components/button';
+import { LoginContext } from 'contexts/Login';
+import { AlertContext } from 'contexts/Alert';
 
 const Login = () => {
 	const history = useHistory();
+	const { setUsername, setIsLoggedIn } = useContext(LoginContext);
+	const { setLoginFailAlert } = useContext(AlertContext);
 
 	// hardcode user credentials:
 	const user_cred = {
@@ -22,7 +26,11 @@ const Login = () => {
 		console.log(filledCreds.username, filledCreds.password, user_cred.username, user_cred.password);
 		if (filledCreds.username === user_cred.username && filledCreds.password === user_cred.password) {
 			console.log('redirecting...');
+			setIsLoggedIn(true);
+			setUsername(user_cred.username);
 			history.replace('/job-list');
+		} else {
+			setLoginFailAlert(true);
 		}
 	};
 
